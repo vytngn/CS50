@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello</title>
+        <!--JAVASCRIPT CODE START HERE-->
+        <script>
+            // ------ FUNCTIONS FIELD -------
+            //create a function called hello --> run when click on the button Click Here
+            function hello(){
+                alert('Hello,world!');
+            }
+
+            // function return 'Goodbye' if the first h1 element is 'Hello!'
+            // else return 'Hello!'
+            function conditionalHello(){
+                const heading = document.querySelector('h1');
+                if (heading.innerHTML === 'Hello!') {
+                    heading.innerHTML = 'Goodbye!';
+                } else {
+                    heading.innerHTML = 'Hello!';
+                }
+            }
+
+            //------ EVENT LISTENER ---------
+            document.addEventListener('DOMContentLoaded',function(){
+                document.querySelector('form').onsubmit = function(){
+                    const name = document.querySelector('#name').value;
+                    alert(`Hello, ${name}`);
+                };
+            })
+        </script>
+        <!--JAVASCRIPT SECTION ENDED-->
+    </head>
+
+    <body>
+        <h1>Hello!</h1>
+        <form>
+            <input autofocus id="name" placeholder="Name" type="text">
+            <input type="submit" value="Submit">
+        </form>
+
+        <!--run function hello when user click on a button -->
+        <div>
+            <button onclick="hello()">Click Here for Alert</button>
+            <button onclick="conditionalHello()">Say Goodbye</button>
+        </div>
+        
+    </body>
+</html>
