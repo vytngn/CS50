@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--===========HEAD SECTION ============-->
+    <head>
+        <title>Tasks</title>
+        <!---JAVASCRIPT--->
+        <script>
+            document.addEventListener('DOMContentLoaded',function(){
+                //BY DEFAULT: submit button is disabled
+                document.querySelector('#submit').disabled = true;
+
+                /*Condition to enable submit button: 
+                 * when user releases a key on the keyboard & length of their input string > 0
+                 * otherwise, disable submit button
+                 */
+                document.querySelector('#task').onkeyup = () => {
+                    //anytime 
+                    if (document.querySelector('#task').value.length > 0){
+                        document.querySelector('#submit').disabled = false;
+                    }else{
+                        document.querySelector('#submit').disabled = true;
+                    }
+                }
+
+                document.querySelector('form').onsubmit = () => {
+                
+                    //get the value of the input field - what user type in
+                    const task = document.querySelector('#task').value;
+
+                    const li = document.createElement('li');
+                    li.innerHTML = task;
+
+                    //add task to the list of tasks
+                    document.querySelector('#tasks').append(li);
+
+                    //empty input box after submitting a task
+                    document.querySelector('#task').value = '';
+
+                    //after adding a task, submit button is disabled
+                    document.querySelector('#submit').disable = true;
+
+                    //stop form from submitting 
+                    return false;
+                }
+            });
+        </script>
+    </head>
+    <!--===========BODY SECTION=============-->
+    <body>
+        <!-- heading -->
+        <h1>Tasks</h1>
+        <!-- list of tasks -->
+        <ul id="tasks">
+
+        </ul>
+        <!-- input of new task-->
+        <form>
+            <input id="task" type="text" placeholder="New Task">
+            <input id="submit" type="submit" value="Submit">
+        </form>
+
+    </body>
+</html>
